@@ -1,11 +1,11 @@
 
 const express = require('express')
-
+const { createUser } = require('../controllers/userControl')
 const userRouter = express.Router()
 
 
 userRouter.route('/')
-.post()
+.post(createUser)
 .get()
 .delete()
 .patch()
