@@ -11,8 +11,10 @@ mongoose.connect(process.env.DBURL)
 .catch((err)=>console.log(err))
 
 // Middlewares
+const {corsmid} = require('./middlewares/cors')
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+app.use(corsmid)
 
 // Routes
 const messageRouter = require('./routers/messageRouter')

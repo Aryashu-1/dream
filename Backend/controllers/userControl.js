@@ -1,4 +1,4 @@
-const {user} = require('../models/user')
+const {user} = require('../models/user');
 
 
 async function createUser(req,res){
@@ -20,7 +20,21 @@ async function createUser(req,res){
 
 }
 
+async function checkIfUserExists(req,res){
+
+    try {
+        const new_user = await user.find({email:req.body.email,password:req.body.password})
+        
+        return res.status(201).send(new_user)
+    } catch (error) {
+        
+    }
+    
+
+
+}
 
 module.exports = {
-    createUser
+    createUser,
+    checkIfUserExists
 }

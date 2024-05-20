@@ -1,14 +1,14 @@
 
 const express = require('express')
-const { createUser } = require('../controllers/userControl')
+const { createUser,checkIfUserExists } = require('../controllers/userControl')
 const userRouter = express.Router()
 
 
-userRouter.route('/')
+userRouter.route('/signup')
 .post(createUser)
-.get()
-.delete()
-.patch()
+
+userRouter.route('/signin')
+.post(checkIfUserExists)
 
 
 
